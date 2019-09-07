@@ -453,6 +453,26 @@ function printMenuitems($menu, $level, $locales)
 			<?php
             break;
 
+	case 'link_map':
+            ?>
+
+                        <li>
+                                <a href="<?= $menu->href; ?>" class="menu-label" style="color: #d60807 !important;"><i class="fa <?= $menu->icon; ?>" aria-hidden="true"></i> <?= $menu->text; ?></a>
+                        </li>
+
+                        <?php
+            break;
+
+	case 'link_external_brand':
+            ?>
+
+                        <li>
+                                <a href="<?= $menu->href; ?>" target="_blank" class="menu-label" style="color: #7289DA !important;"><i class="fab <?= $menu->icon; ?>" aria-hidden="true"></i> <?= $menu->text; ?></a>
+                        </li>
+
+                        <?php
+            break;
+
         case 'html':
             ?>
 

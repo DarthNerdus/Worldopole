@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://htownpogo.com/</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://htownpogo.com/pokestops</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://htownpogo.com/gym</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://htownpogo.com/raids</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://htownpogo.com/pokemon</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://htownpogo.com/dashboard</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://htownpogo.com/nests</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://htownpogo.com/map/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+</urlset>
+<!--<guid value="d41f6049-7e7d-4456-ab69-c486aaecc6c0" />-->
+<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->

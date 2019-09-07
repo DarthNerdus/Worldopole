@@ -33,7 +33,7 @@
 
 		<meta property="og:url" content="<?= HOST_URL; ?>" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name; ?>" />
-		<meta property="og:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta property="og:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<meta name="description" content="<?= sprintf($locales->METADESCRIPTION, $config->infos->city); ?>"/>
 
@@ -41,7 +41,7 @@
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= sprintf($locales->METADESCRIPTION, $config->infos->city); ?>" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name; ?> | <?= strip_tags($config->infos->site_title); ?> " />
-		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 
 <?php
@@ -88,12 +88,12 @@
 		<meta property="og:description" content="<?= sprintf($locales->POKESTOPS_METADESC, $config->infos->city); ?>" />
 		<meta property="og:url" content="<?= HOST_URL; ?>pokestops" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name; ?>" />
-		<meta property="og:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta property="og:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= sprintf($locales->POKESTOPS_METADESC, $config->infos->city); ?>" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name; ?> | <?= sprintf($locales->POKESTOPS_METATITLE, $config->infos->city); ?>" />
-		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 
 		<?php
@@ -114,12 +114,12 @@
 		<meta property="og:description" content="<?= $locales->GYMS_METADESC; ?>" />
 		<meta property="og:url" content="<?= HOST_URL; ?>gym" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name; ?>" />
-		<meta property="og:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta property="og:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= $locales->GYMS_METADESC; ?>" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name; ?> | <?= $locales->GYMS_METATITLE; ?>" />
-		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<?php
             break;
@@ -138,12 +138,12 @@
 		<meta property="og:description" content="<?= $locales->TRAINERS_METADESC; ?>" />
 		<meta property="og:url" content="<?= HOST_URL; ?>trainer" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name; ?>" />
-		<meta property="og:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta property="og:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= $locales->TRAINERS_METADESC; ?>" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name; ?> | <?= $locales->TRAINERS_METATITLE; ?>" />
-		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<?php
             break;
@@ -162,12 +162,12 @@
 		<meta property="og:description" content="Data lover? We've got plenty for you!" />
 		<meta property="og:url" content="<?= HOST_URL; ?>dashboard" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name; ?>" />
-		<meta property="og:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta property="og:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="Data lover? We've got plenty for you!" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name; ?> | <?= $locales->NAV_DASHBOARD; ?>" />
-		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 
 		<?php
@@ -187,12 +187,12 @@
 		<meta property="og:description" content="<?= $locales->POKEDEX_METADESC; ?>" />
 		<meta property="og:url" content="<?= HOST_URL; ?>pokemon" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name; ?>" />
-		<meta property="og:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta property="og:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= $locales->POKEDEX_METADESC; ?>" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name; ?> | <?= $locales->POKEDEX_METATITLE; ?>" />
-		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<?php
             break;
@@ -211,12 +211,12 @@
 		<meta property="og:description" content="<?= $locales->NESTS_METADESC; ?>" />
 		<meta property="og:url" content="<?= HOST_URL; ?>nests" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name; ?>" />
-		<meta property="og:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta property="og:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= $locales->NESTS_METADESC; ?>" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name; ?> | <?= $locales->NAV_NESTS; ?>" />
-		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<?php
             break;
@@ -235,12 +235,13 @@
 		<meta property="og:description" content="<?= $locales->RAIDS_METADESC; ?>" />
 		<meta property="og:url" content="<?= HOST_URL; ?>raids" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name; ?>" />
-		<meta property="og:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta property="og:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="<?= $locales->RAIDS_METADESC; ?>" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name; ?> | <?= $locales->NAV_RAIDS; ?>" />
-		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
+
 		<?php
             break;
 
@@ -282,12 +283,12 @@
 		<meta property="og:description" content="Gym History" />
 		<meta property="og:url" content="<?= HOST_URL; ?>gymhistory" />
 		<meta property="og:site_name" content="<?= $config->infos->site_name; ?>" />
-		<meta property="og:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta property="og:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="Gym History" />
 		<meta name="twitter:title" content="<?= $config->infos->site_name; ?> | Gym History" />
-		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/logo.jpg" />
+		<meta name="twitter:image" content="<?= HOST_URL; ?>core/img/overview.jpg" />
 
 		<?php
             break;
