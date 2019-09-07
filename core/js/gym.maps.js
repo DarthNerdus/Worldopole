@@ -18,9 +18,9 @@ function initMap() {
 			// Get website variables
 
 			$.getJSON('core/json/variables.json', function(variables) {
-				var latitude = Number(variables['system']['map_center_lat']);
-				var longitude = Number(variables['system']['map_center_long']);
-				var zoom_level = Number(variables['system']['zoom_level']);
+				var latitude = 40.845556;
+				var longitude = -74.695;
+				var zoom_level = 11;
 
 				var map = new google.maps.Map(document.getElementById('map'), {
 					center: {
