@@ -31,3 +31,4 @@ config.php
 /core/json/nests.stats.json
 /core/json/nests.parks.json
 analyticstracking.php
+core/json/osm.json
