@@ -89,9 +89,6 @@
 			<div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="<?= $id; ?>" data-pokeuid="<?= $uid; ?>" >
 				<a href="pokemon/<?= $id; ?>"><img src="<?= $pokemons->pokemon->$id->img; ?>" alt="<?= $pokemons->pokemon->$id->name; ?>" class="img-responsive"></a>
 				<a href="pokemon/<?= $id; ?>"><p class="pkmn-name"><?= $pokemons->pokemon->$id->name; ?></p></a>
-				<a href="<?= $pokemon->location_link; ?>" target="_blank">
-					<small class="pokemon-timer">00:00:00</small>
-				</a>
 				<?php
                 if ($config->system->recents_encounter_details) {
                     if ($pokemon->encdetails->available) {

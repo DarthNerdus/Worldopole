@@ -72,21 +72,9 @@ function updateCounter(new_value, classname) {
 var timers = [];
 
 function startTimer(duration, element) {
-	var currentDuration = duration;
-	timers.push(setInterval(function() {
-		$('[data-pokeuid="' + element + '"]').find('.pokemon-timer').text(formatDuration(currentDuration));
-		currentDuration--;
-		var color = 'rgb(62, 150, 62)';
-		if ((currentDuration) < 0) {
-			color = 'rgb(210, 118, 118)';
-		}
-		$('[data-pokeuid="' + element + '"]').find('.pokemon-timer').css({ 'color': color });
-	}, 1000));
 }
 
 function stopTimer() {
-	var lastTimer = timers.shift();
-	clearInterval(lastTimer);
 }
 
 function formatDuration(remainingTime) {
