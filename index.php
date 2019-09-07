@@ -18,13 +18,14 @@ include_once 'core/process/data.loader.php';
 		<!-- Bootstrap -->
 		<link href="core/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
-		<link href="core/css/font-awesome.min.css" rel="stylesheet">
+		<!-- <link href="core/css/font-awesome.min.css" rel="stylesheet"> -->
 		<link href="<?php auto_ver('core/css/style.css'); ?>" rel="stylesheet">
 		<?php if ('pokemon' == $page) {
     ?>
 			<link href="<?php auto_ver('core/css/jQRangeSlider-bootstrap.min.css'); ?>" rel="stylesheet">
 		<?php
 } ?>
+		<script src="https://kit.fontawesome.com/698398ec4a.js"></script>
 	</head>
 	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
