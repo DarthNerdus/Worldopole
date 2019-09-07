@@ -33,9 +33,9 @@
 			<small>[<?= $pokemon->rarity; ?>]</small></h1>
 
 			<p id="share">
-				<a href="https://www.facebook.com/sharer/sharer.php?u=<?= HOST_URL; ?>pokemon/<?= $pokemon->id; ?>" target="_blank" class="btn btn-primary" title="<?php printf($locales->SHARE, 'Facebook'); ?>" ><?php printf($locales->SHARE, ''); ?> <i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=<?= HOST_URL; ?>pokemon/<?= $pokemon->id; ?>" target="_blank" class="btn btn-primary" title="<?php printf($locales->SHARE, 'Facebook'); ?>" ><?php printf($locales->SHARE, ''); ?> <i class="fab fa-facebook" aria-hidden="true"></i></a>
 
-				<a href="https://twitter.com/intent/tweet?source=<?= HOST_URL; ?>pokemon/<?= $pokemon_id; ?>&text=Find%20<?= $pokemon->name; ?>%20in:%20<?= $config->infos->city; ?>%20<?= HOST_URL; ?>pokemon/<?= $pokemon->id; ?>" target="_blank" title="<?php printf($locales->SHARE, 'Twitter'); ?>" class="btn btn-info"><?php printf($locales->SHARE, ''); ?> <i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<a href="https://twitter.com/intent/tweet?source=<?= HOST_URL; ?>pokemon/<?= $pokemon_id; ?>&text=Find%20<?= $pokemon->name; ?>%20in:%20<?= $config->infos->city; ?>%20<?= HOST_URL; ?>pokemon/<?= $pokemon->id; ?>" target="_blank" title="<?php printf($locales->SHARE, 'Twitter'); ?>" class="btn btn-info"><?php printf($locales->SHARE, ''); ?> <i class="fab fa-twitter" aria-hidden="true"></i></a>
 			</p>
 
 		</div>
