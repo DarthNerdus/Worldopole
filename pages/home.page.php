@@ -21,22 +21,14 @@
 		</a>
 	</div>
 
-	<div class="flex-item-homepage big-data"> <!-- GYMS -->
-		<a href="gym">
-			<img src="core/img/rocket.png" alt="Discover the <?= $config->infos->site_name; ?> Gyms" width=50 class="big-icon">
-			<p><big><strong class="total-gym-js">0</strong> <?= $locales->GYMS; ?></big><br>
-			<?= $locales->WIDGET_GYM_SUB; ?></p>
-		</a>
-
-	</div>
 
 	<?php
     if (true === !$config->system->no_lures) {
         ?>
 		<div class="flex-item-homepage big-data"> <!-- POKESTOPS -->
 			<a href="pokestops">
-				<img src="core/img/lure-module.png" alt="Discover the <?= $config->infos->site_name; ?> Pokéstops" width=50 class="big-icon">
-				<p><big><strong class="total-lure-js">0</strong> <?= $locales->LURES; ?></big><br>
+				<img src="core/img/rocket_medal.png" alt="<?= $config->infos->site_name; ?> Invasions" width=50 class="big-icon">
+				<p><big><strong class="total-lure-js">0</strong> Invasions</big><br>
                     <?= sprintf($locales->WIDGET_LURES_SUB, $config->infos->city); ?></p>
 			</a>
 		</div>
@@ -65,6 +57,39 @@
 
 </div>
 
+<div class="row area big padding">
+        <h2 class="text-center sub-title"><?= $locales->FIGHT_TITLE; ?></h2>
+
+                <?php
+            foreach ($home->teams as $team => $total) {
+                if ($home->teams->rocket) {
+                    ?>
+
+                                        <div class="col-md-3 col-sm-6 col-sm-12 team">
+                                                <div class="row">
+                                                        <div class="col-xs-12 col-sm-12">
+                                                                <p style="margin-top:0.5em;text-align:center;"><img src="core/img/<?= $team; ?>.png" alt="Team <?= $team; ?>" class="img-responsive" style="display:inline-block" width=80> <strong class="total-<?= $team; ?>-js">0</strong> <?= $locales->GYMS; ?></p>
+
+                                <?php
+                } else {
+                    ?>
+
+                                        <div class="col-md-4 col-sm-6 col-sm-12 team">
+                                                <div class="row">
+                                                        <div class="col-xs-12 col-sm-12">
+                                                                <?php
+                                    if ('rocket' != $team) {
+                                        ?>
+                                                                                <p style="margin-top:0.5em;text-align:center;"><img src="core/img/<?= $team; ?>.png" alt="Team <?= $team; ?>" class="img-responsive" style="display:inline-block" width=80> <strong class="total-<?= $team; ?>-js">0</strong> <?= $locales->GYMS; ?></p>
+                                                                                <?php
+                                    }
+                } ?>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                <?php
+            } ?>
+</div>
 
 <div class="row area big-padding">
 	<div class="col-md-12 text-center">
@@ -158,41 +183,6 @@
         } ?>
 		</div>
 	</div>
-</div>
-
-
-<div class="row big padding">
-	<h2 class="text-center sub-title"><?= $locales->FIGHT_TITLE; ?></h2>
-
-		<?php
-            foreach ($home->teams as $team => $total) {
-                if ($home->teams->rocket) {
-                    ?>
-
-					<div class="col-md-3 col-sm-6 col-sm-12 team">
-						<div class="row">
-							<div class="col-xs-12 col-sm-12">
-								<p style="margin-top:0.5em;text-align:center;"><img src="core/img/<?= $team; ?>.png" alt="Team <?= $team; ?>" class="img-responsive" style="display:inline-block" width=80> <strong class="total-<?= $team; ?>-js">0</strong> <?= $locales->GYMS; ?></p>
-
-				<?php
-                } else {
-                    ?>
-
-					<div class="col-md-4 col-sm-6 col-sm-12 team">
-						<div class="row">
-							<div class="col-xs-12 col-sm-12">
-								<?php
-                                    if ('rocket' != $team) {
-                                        ?>
-										<p style="margin-top:0.5em;text-align:center;"><img src="core/img/<?= $team; ?>.png" alt="Team <?= $team; ?>" class="img-responsive" style="display:inline-block" width=80> <strong class="total-<?= $team; ?>-js">0</strong> <?= $locales->GYMS; ?></p>
-										<?php
-                                    }
-                } ?>
-							</div>
-						</div>
-					</div>					
-				<?php
-            } ?>
 </div>
 
 

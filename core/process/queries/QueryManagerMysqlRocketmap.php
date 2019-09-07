@@ -382,10 +382,20 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
         return $data;
     }
 
+    public function getTotalInvasions()
+    {
+       $req = 'SELECT COUNT(*) as total FROM pokestop WHERE incident_expiration > UTC_TIMESTAMP()';
+        $result = $this->mysqli->query($req);
+        $data = $result->fetch_object();
+
+       return $data;
+    }
+
     public function getAllPokestops()
     {
-        $req = "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() AS now,
-				CONVERT_TZ(lure_expiration, '+00:00', '".self::$time_offset."') AS lure_expiration_real
+        $req = "SELECT latitude, longitude, lure_expiration, incident_expiration, incident_grunt_type, UTC_TIMESTAMP() AS now,
+				CONVERT_TZ(lure_expiration, '+00:00', '".self::$time_offset."') AS lure_expiration_real,
+				CONVERT_TZ(incident_expiration, '+00:00', '".self::$time_offset."') AS incident_expiration_real
 				FROM pokestop";
         $result = $this->mysqli->query($req);
         $pokestops = array();

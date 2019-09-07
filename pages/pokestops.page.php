@@ -15,7 +15,7 @@
 	<?php
     if (true === !$config->system->no_lures) {
         ?>
-		<div class="col-md-6 col-sm-6 col-xs-12 big-data" style="border-right:1px lightgray solid;"> <!-- POKESTOPS -->
+		<div class="col-md-4 col-sm-4 col-xs-12 big-data" style="border-right:1px lightgray solid;"> <!-- POKESTOPS -->
 		<?php
     } else {
         ?>
@@ -30,10 +30,15 @@
 	<?php
     if (true === !$config->system->no_lures) {
         ?>
-		<div class="col-md-6 col-sm-6 col-xs-12 big-data"> <!-- LURED STOPS -->
+		<div class="col-md-4 col-sm-4 col-xs-12 big-data" style="border-right:1px lightgray solid;"> <!-- LURED STOPS -->
 		<img src="core/img/lure-module.png" alt="Lured Pokestop" width=50 class="big-icon">
 			<p><big><strong><?= $pokestop->lured; ?></strong> <?= $locales->LURES; ?></big><br> <?= $locales->POKESTOPS_LURES; ?></p>
 		</div>
+
+		<div class="col-md-4 col-sm-4 col-xs-12 big-data"> <!-- INVADED STOPS -->
+                <img src="core/img/rocket_medal.png" alt="Team Rocket Invasions" width=50 class="big-icon">
+                        <p><big><strong><?= $pokestop->invaded; ?></strong> Invasions</big><br>active now</p>
+                </div>
 	<?php
     }
     ?>
@@ -44,9 +49,8 @@ if (true === !$config->system->no_lures) {
         ?>
 	<div class="row text-center subnav">
 		<div class="btn-group" role="group">
-		<a class="btn btn-default active" id="pokestopSelector"><i
-				class="fa fa-medkit"></i> <?= $locales->POKESTOPS; ?></a>
-		<a class="btn btn-default " id="lureSelector"><i class="fa fa-eye"></i> <?= $locales->LURES; ?></a>
+		<a class="btn btn-default active" id="lureSelector"><i class="fa fa-bolt"></i> Active</a>
+		<a class="btn btn-default " id="pokestopSelector"><i class="fa fa-medkit"></i> All Pokestops</a>
 	</div>
 	</div>
 	<?php

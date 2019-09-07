@@ -19,6 +19,8 @@ include_once '../../config.php';
 
 $variables = SYS_PATH.'/core/json/variables.json';
 $config = json_decode(file_get_contents($variables));
+$invasions = SYS_PATH.'/core/json/invasions.json';
+$invasionTypes = json_decode(file_get_contents($invasions), $assoc = true);
 
 // Manage Time Interval
 // #####################
@@ -65,7 +67,7 @@ switch ($request) {
 
         // Lured stops
         // -----------
-        $data = $manager->getTotalLures();
+        $data = $manager->getTotalInvasions();
         $values[] = $data->total;
 
         // Active Raids
@@ -159,9 +161,11 @@ switch ($request) {
                     <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" style="display: none;">
                     <a href="pokemon/'.$pokeid.'"><img src="'.$pokemons->pokemon->$pokeid->img.'" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
                     <a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
-                    <a href="'.$location_link.'" target="_blank">
-                        <small class="pokemon-timer">00:00:00</small>
-                    </a>';
+		<a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
+<a href="'.$location_link.'" target="_blank">
+    <small class="pokemon-timer">00:00:00</small>
+</a>';
+
                     if ($config->system->recents_encounter_details) {
                         if ($encdetails->available) {
                             if ($config->system->iv_numbers) {
@@ -247,9 +251,13 @@ switch ($request) {
         $pokestops = [];
         foreach ($datas as $data) {
             if ($data->lure_expiration >= $data->now) {
-                $icon = 'pokestap_lured.png';
-                $text = sprintf($locales->POKESTOPS_MAP_LURED, date('H:i:s', strtotime($data->lure_expiration_real)));
+                $icon = sprintf('stop_l_%s.png', $data->active_fort_modifier);
+                $text = sprintf($locales->POKESTOPS_MAP_LURED, date('g:i a', strtotime($data->lure_expiration_real)));
                 $lured = true;
+            } else if ($data->incident_expiration >= $data->now) {
+		$icon = sprintf('stop_i_%s.png', $data->incident_grunt_type);
+		$text = sprintf("%s Invasion until %s", $invasionTypes[$data->incident_grunt_type]['type'], date('g:i a', strtotime($data->incident_expiration_real)));
+		$lured = true;
             } else {
                 $icon = 'pokestap.png';
                 $text = $locales->POKESTOPS_MAP_REGULAR;

@@ -126,6 +126,13 @@ foreach ($stats as $data) {
     }
 }
 
+foreach ($stats as $data) {
+    if ($data->timestamp > $lastweek) {
+        $labels_invasions[] = '"'.date('D H:i', $data->timestamp).'"';
+	$invasion[] = $data->invaded;
+    }
+}
+
 if ($config->system->captcha_support) {
     $stats_file = SYS_PATH.'/core/json/captcha.stats.json';
     $stats = json_decode(file_get_contents($stats_file));
@@ -588,6 +595,50 @@ var myLineChart = new Chart(ctx_lure, {
 	data: data_lure,
 	options: options
 });
+
+
+// Pokestop invasion
+// -------------
+
+                
+                
+                
+var ctx_invasion = $('#invasions');
+
+var data_invasion = {
+        labels: [<?= implode(',', $labels_invasions); ?>],
+        datasets: [{
+                label: '<?= $locales->DASHBOARD_GRAPH_LURED_POKESTOPS; ?>',
+                fill: true,
+                lineTension: 0.1,
+backgroundColor: 'rgba(247,10,20,0.4)',
+                        borderColor: 'rgba(247,10,20,1)',
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: 'rgba(247,10,20,1)',
+                        pointBackgroundColor: '#fff',
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: 'rgba(247,10,20,1)',
+                        pointHoverBorderColor: 'rgba(0,0,0,1)',
+
+                pointHoverBorderWidth: 2,
+                pointRadius: 0,
+                pointHitRadius: 10,
+                data: [<?= implode(',', $invasion); ?>],
+                spanGaps: false,
+        }]      
+};      
+
+
+var myLineChart = new Chart(ctx_invasion, {
+        type: 'line',
+        data: data_invasion,
+        options: options
+});
+
 
 
 // Captcha

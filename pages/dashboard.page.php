@@ -109,6 +109,18 @@
 
 		</div>
 
+
+
+
+                        <div class="col-md-12">
+    
+                                <h4>Team Rocket Invasions <small><?= $locales->DASHBOARD_LAST7DAYS; ?></small></h4>
+                                <div style="height:30vh">
+                                        <canvas id="invasions"></canvas>
+                                </div>
+                        </div>
+
+
 <?php
 } ?>
 

@@ -215,6 +215,9 @@ if (!empty($page)) {
             $data = $manager->getTotalLures();
             $pokestop->lured = $data->total;
 
+            $data = $manager->getTotalInvasions();
+            $pokestop->invaded = $data->total;
+
             break;
 
         // Gyms
