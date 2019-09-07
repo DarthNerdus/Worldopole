@@ -540,7 +540,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
         } else {
             $pageSize = 10;
         }
-        $req = "SELECT gym_id, team_id, total_cp, pokemon_uids, pokemon_count,
+        $req = "SELECT gym_id, team_id, 
 				CONVERT_TZ(last_modified, '+00:00', '".self::$time_offset."') as last_modified
 				FROM gymhistory
 				WHERE gym_id='".$gym_id."'

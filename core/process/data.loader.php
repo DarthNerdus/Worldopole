@@ -177,7 +177,7 @@ if (!empty($page)) {
 
             // Trainer with highest Pokemon
 
-            $toptrainer = $manager->getTop50Trainers($pokemon_id, $best_order_by, $best_direction);
+            //$toptrainer = $manager->getTop50Trainers($pokemon_id, $best_order_by, $best_direction);
 
             break;
 
