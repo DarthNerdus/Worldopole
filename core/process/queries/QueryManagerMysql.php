@@ -25,7 +25,7 @@ abstract class QueryManagerMysql extends QueryManager
             exit();
         }
 
-	$this->manualdb = new \mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, 'manual', SYS_DB_PORT);
+	$this->manualdb = new \mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, MAN_DB_NAME, SYS_DB_PORT);
         if ('' != $this->manualdb->connect_error) {
             header('Location:'.HOST_URL.'offline.html');
             exit();

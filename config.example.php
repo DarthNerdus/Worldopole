@@ -19,6 +19,8 @@ define('SYS_DB_HOST', '#SYS_DB_HOST#');
 define('SYS_DB_PORT', 3306);
 // db scanner type
 define('SYS_DB_TYPE', 'rocketmap'); // 'rocketmap', 'realdevicemap', 'monocle-alt-mysql' or 'monocle-alt-pgsql'
+// manual DB name -- expects same user to work
+define('MAN_DB_NAME', 'manual');
 
 // Please, do not touch me, I'm fine ;)
 
