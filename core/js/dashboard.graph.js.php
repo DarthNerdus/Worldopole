@@ -30,7 +30,7 @@ include_once '../process/timezone.loader.php';
 
 $now = time();
 $yesterday = $now - 86400;
-$lastweek = $now - 604800;
+$lastweek = $now - 172800;
 
 $i = 0;
 $labels_global = array();
