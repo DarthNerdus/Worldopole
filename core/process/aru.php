@@ -535,7 +535,7 @@ switch ($request) {
     case 'quests':
         $quests = $manager->getQuests();
         $ch = curl_init();                              
-        curl_setopt($ch, CURLOPT_URL, "http://darthy:***REMOVED***@127.0.0.1:5000/get_quests");
+        curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1:5000/get_quests");
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);    
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
         $quests = curl_exec($ch);                 
