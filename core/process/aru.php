@@ -502,8 +502,8 @@ switch ($request) {
         $i = 1;
         $raids = array();
         foreach ($datas as $data) {
-            $data->starttime = date('H:i', strtotime($data->start));
-            $data->endtime = date('H:i', strtotime($data->end));
+            $data->starttime = date('g:i a', strtotime($data->start));
+            $data->endtime = date('g:i a', strtotime($data->end));
             $data->gym_id = str_replace('.', '_', $data->gym_id);
             if (isset($data->move_1)) {
                 $move1 = $data->move_1;
