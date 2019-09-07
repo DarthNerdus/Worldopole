@@ -531,6 +531,32 @@ switch ($request) {
 
         break;
 
+
+    case 'quests':
+        $quests = $manager->getQuests();
+        $ch = curl_init();                              
+        curl_setopt($ch, CURLOPT_URL, "http://darthy:***REMOVED***@127.0.0.1:5000/get_quests");
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);    
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+        $quests = curl_exec($ch);                 
+        if (curl_errno($ch)) {                          
+            echo curl_error($ch);                       
+            echo "\n<br />";                            
+            $quests = '';                         
+        } else {                                        
+            curl_close($ch);                            
+        }                                               
+        $json = array();                          
+        $json['raids'] = json_decode($quests);
+        $locale = array();                        
+        $locale['noraids'] = "Unfortunately, no quests have been scanned recently.";
+        $json['locale'] = $locale;                
+
+        header('Content-Type: application/json'); 
+        echo json_encode($json);                  
+
+        break;
+
     case 'gyms':
         $page = '0';
         $ranking = 0;

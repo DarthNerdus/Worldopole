@@ -232,6 +232,14 @@ include_once 'core/process/data.loader.php';
 					<?php
                     break;
 
+		case 'quests':
+		    ?>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
+                                        <script src="<?php auto_ver('core/js/quests.content.js'); ?>"></script> 
+
+					<?
+		    break;
+
                 case 'gymhistory':
                     ?>
 

@@ -312,7 +312,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
     {
         $req = 'SELECT MAX(latitude) AS max_latitude, MIN(latitude) AS min_latitude,
 				MAX(longitude) AS max_longitude, MIN(longitude) as min_longitude
-				FROM spawnpoint';
+				FROM trs_spawn';
         $result = $this->mysqli->query($req);
         $data = $result->fetch_object();
 
@@ -827,6 +827,17 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
         return $data;
     }
 
+    public function getPMSFNests()
+    {
+	$req = 'SELECT * FROM nests;';
+	$result = $this->manualdb->query($req);
+        $nests = array();
+        while ($data = $result->fetch_object()) {
+            $nests[] = $data;
+        }  
+	return $nests;
+    }
+
     public function getNestData($time, $minLatitude, $maxLatitude, $minLongitude, $maxLongitude)
     {
         $pokemon_exclude_sql = '';
@@ -840,7 +851,6 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
 				AND latitude >= '.$minLatitude.' AND latitude < '.$maxLatitude.' AND longitude >= '.$minLongitude.' AND longitude < '.$maxLongitude.'
 				'.$pokemon_exclude_sql.' 
 				GROUP BY spawnpoint_id, pokemon_id 
-				HAVING COUNT(pokemon_id) >= '.($time / 4).'
 				ORDER BY pokemon_id';
         $result = $this->mysqli->query($req);
         $nests = array();
@@ -854,11 +864,26 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
     public function getSpawnpointCount($minLatitude, $maxLatitude, $minLongitude, $maxLongitude)
     {
         $req = 'SELECT COUNT(*) as total 
-				FROM spawnpoint
+				FROM trs_spawn
 				WHERE latitude >= '.$minLatitude.' AND latitude < '.$maxLatitude.' AND longitude >= '.$minLongitude.' AND longitude < '.$maxLongitude;
         $result = $this->mysqli->query($req);
         $data = $result->fetch_object();
 
         return $data;
+    }
+
+    ///////////
+    // Quests
+    //////////
+
+    public function getQuests()
+    {
+        $req = 'select guid, quest_reward, quest_task from trs_quest where from_unixtime(quest_timestamp) between curdate() + interval 2 hour and curdate() + interval 1 day + interval 2 hour;';
+        $result = $this->mysqli->query($req);
+        $quests = array();
+        while ($data = $result->fetch_object()) { 
+            $quests[] = $data;
+	}
+        return $quests;
     }
 }

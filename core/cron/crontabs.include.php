@@ -65,7 +65,6 @@ if ($config->system->captcha_support) {
 // The following files are updated every 24h only because the queries are quite expensive
 // and they don't need a fast update interval
 $pokedex_rarity_file = SYS_PATH.'/core/json/pokedex.rarity.json';
-$nests_file = SYS_PATH.'/core/json/nests.stats.json';
 $nests_parks_file = SYS_PATH.'/core/json/nests.parks.json';
 
 $migration = new DateTime();
@@ -77,12 +76,6 @@ do {
 } while ($migration < new DateTime());
 $migration = $migrationPrev->getTimestamp();
 
-if (!is_file($nests_parks_file) || filemtime($nests_parks_file) - $migration <= 0) {
-    file_put_contents($nests_file, json_encode(array()));
-    file_put_contents($nests_parks_file, json_encode(array()));
-    touch($nests_parks_file, 1);
-}
-
 // Do not update both files at the same time to lower cpu load
 if (file_update_ago($pokedex_rarity_file) > 86400) {
     // set file mtime to now before executing long running queries
@@ -90,30 +83,6 @@ if (file_update_ago($pokedex_rarity_file) > 86400) {
     touch($pokedex_rarity_file);
     // update pokedex rarity
     include_once SYS_PATH.'/core/cron/pokedex_rarity.cron.php';
-} elseif ((file_update_ago($nests_parks_file) >= 43200) && (time() - $migration >= 43200) && (time() - $migration < 86400)) { // extra update 12h after migration
-    if (is_file($nests_parks_file)) {
-        $prevNestTime = filemtime($nests_parks_file);
-    } else {
-        $prevNestTime = 1;
-    }
+} 
 
-    // set file mtime to now before executing long running queries
-    // so we don't try to update the file twice
-    touch($nests_parks_file);
-    // update nests
-    $nestTime = 12;
-    include_once SYS_PATH.'/core/cron/nests.cron.php';
-} elseif ((file_update_ago($nests_parks_file) >= 86400) && (time() - $migration >= 86400)) {
-    if (is_file($nests_parks_file)) {
-        $prevNestTime = filemtime($nests_parks_file);
-    } else {
-        $prevNestTime = 1;
-    }
-
-    // set file mtime to now before executing long running queries
-    // so we don't try to update the file twice
-    touch($nests_parks_file);
-    // update nests
-    $nestTime = 24;
-    include_once SYS_PATH.'/core/cron/nests.cron.php';
-}
+include_once SYS_PATH.'/core/cron/nests.cron.php';

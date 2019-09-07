@@ -9,6 +9,7 @@ include_once __DIR__.'/QueryManagerMysqlRealDeviceMap.php';
 abstract class QueryManagerMysql extends QueryManager
 {
     protected $mysqli;
+    protected $manualdb;
 
     protected function __construct()
     {
@@ -23,6 +24,19 @@ abstract class QueryManagerMysql extends QueryManager
             header('Location:'.HOST_URL.'offline.html');
             exit();
         }
+
+	$this->manualdb = new \mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, 'manual', SYS_DB_PORT);
+        if ('' != $this->manualdb->connect_error) {
+            header('Location:'.HOST_URL.'offline.html');
+            exit();
+        }
+        $this->manualdb->set_charset('utf8');
+        
+        if ('' != $this->manualdb->connect_error) {
+            header('Location:'.HOST_URL.'offline.html');
+            exit();
+        }
+
     }
 
     public function __destruct()

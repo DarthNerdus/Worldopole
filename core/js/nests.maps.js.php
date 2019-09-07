@@ -92,43 +92,6 @@ function initMap() {
 
 		var infoWindow = new google.maps.InfoWindow({ pixelOffset: new google.maps.Size(0, 8), disableAutoPan: true });
 
-        // load frequent spawns
-        $.getJSON('<?=auto_ver('core/json/nests.stats.json'); ?>', function(nestData) {
-
-            for (var i = 0; i < nestData.length; i++) {
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(nestData[i].lat, nestData[i].lng),
-                    map: null,
-                    icon: getImage(nestData[i], pokeimg_suffix)
-                });
-
-                google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                        infoWindow.setContent(getInfo(nestData[i]));
-                        infoWindow.open(map, marker);
-                        infoWindow.isClickOpen = true;
-                    }
-                })(marker, i));
-
-                google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
-                    return function() {
-                        infoWindow.setContent(getInfo(nestData[i]));
-                        infoWindow.open(map, marker);
-                        infoWindow.isClickOpen = false;
-                    }
-                })(marker, i));
-
-                marker.addListener('mouseout', function() {
-                    if (infoWindow.isClickOpen === false) {
-                        infoWindow.close();
-                    }
-                });
-
-                frequentSpawnMarkers.push(marker);
-
-            }
-        });
-
 		// load nests
 		$.getJSON('<?=auto_ver('core/json/nests.parks.json'); ?>', function(nestData) {
 
@@ -220,7 +183,7 @@ function getCenter(data) {
 function getImage(data, pokeimg_suffix) {
     size = 32
     if (data.geo != null) {
-        size = 25 + data.count
+        size = 32 + data.count
         if (size > 60) {
             size = 60
         }
@@ -253,20 +216,14 @@ function getInfo(data) {
 function getParkInfo(data) {
     var info =  '<div id="content">' +
                     '<div id="bodyContent">' +
-                        '<p><b>' +
+                        '<b>' +
                             pokemon[data.pid] + ' <?= $locales->NESTS_NEST; ?></b><br>'
     if (data.name != null) {
     info +=                 data.name +
-                        '</b></p>'
+                        '</b>'
     } else {
-        info +=         '</b></p>'
+        info +=         '</b>'
     }
-    if (data.count == 1) {
-        info +=         data.count + ' <?= $locales->NESTS_SPAWNPOINT; ?>'
-    } else {
-        info +=         data.count + ' <?= $locales->NESTS_SPAWNPOINTS; ?>'
-    }
-    info +=             '</p>' +
                     '</div>' +
                 '</div>'
     return info
